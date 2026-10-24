@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="icon3/favicon.png">
+  <title>Keranjang Belanja - Kosspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog.css">
+  <link rel="stylesheet" href="transaksi.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <div class="navbar__left">
+        <a href="index.html" class="logo" aria-label="Kosspace - Beranda"><img src="icon3/logo.png" alt="Kosspace"></a>
+        <nav class="navbar__menu" aria-label="Menu utama">
+          <a href="index.html">Beranda</a>
+          <a href="katalog.html">Katalog</a>
+          <a href="detail-pesanan.html">Pesanan Saya</a>
+          <a href="daftar-penjual.html">Jual Barang</a>
+        </nav>
+      </div>
+      <div class="navbar__user">
+        <a href="keranjang.html" class="cart" aria-label="Keranjang, 2 barang">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M2 3h3l2.7 11.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 7H6"/></svg>
+          <span class="cart__badge">2</span>
+        </a>
+        <span class="navbar__sep"></span>
+        <div class="user">
+          <span class="avatar">ML</span>
+          <div><b>Maya Lestari</b><small>Pembeli &amp; Penjual</small></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page">
+    <h1 class="page__title">Keranjang Belanja</h1>
+
+    <div class="cart-layout">
+      <section class="cart-list" aria-label="Barang di keranjang">
+
+        <label class="panel select-all">
+          <input type="checkbox" id="pilih-semua" checked>
+          <b>Pilih Semua (<span id="jml">2</span>)</b>
+        </label>
+
+        <!-- Ganti src dengan foto asli di folder img/ -->
+        <article class="panel cart-item" data-price="150000">
+          <input type="checkbox" class="pilih" checked aria-label="Pilih Rice Cooker Philips 2L">
+          <img src="images/rice-cooker.png" alt="">
+          <h3>Rice Cooker Philips 2L</h3>
+          <p class="cart-item__seller">Penjual: <b>Sarah Melati</b></p>
+          <p class="price-tag">Rp150.000</p>
+          <div class="qty">
+            <div class="stepper">
+              <button type="button" class="minus" aria-label="Kurangi">&minus;</button>
+              <span class="qty-n">1</span>
+              <button type="button" class="plus" aria-label="Tambah">+</button>
+            </div>
+            <button type="button" class="trash" aria-label="Hapus dari keranjang">&#10005;</button>
+          </div>
+        </article>
+
+        <article class="panel cart-item" data-price="200000">
+          <input type="checkbox" class="pilih" checked aria-label="Pilih Meja Belajar Minimalis">
+          <img src="images/meja-belajar.png" alt="">
+          <h3>Meja Belajar Minimalis</h3>
+          <p class="cart-item__seller">Penjual: <b>Budi Santoso</b></p>
+          <p class="price-tag">Rp200.000</p>
+          <div class="qty">
+            <div class="stepper">
+              <button type="button" class="minus" aria-label="Kurangi">&minus;</button>
+              <span class="qty-n">1</span>
+              <button type="button" class="plus" aria-label="Tambah">+</button>
+            </div>
+            <button type="button" class="trash" aria-label="Hapus dari keranjang">&#10005;</button>
+          </div>
+        </article>
+        <div class="panel cart-empty" id="kosong" hidden>
+          <b>Keranjangmu masih kosong</b>
+          <p class="muted">Yuk cari barang kos yang kamu butuhkan.</p>
+          <a href="katalog.html" class="btn btn--solid">Cari Barang</a>
+        </div>
+
+
+      </section>
+
+      <aside class="panel" aria-label="Ringkasan total">
+        <h2>Ringkasan Total</h2>
+        <p class="row">Total Harga (<span id="jml-barang">2</span> barang) <b class="total">Rp350.000</b></p>
+        <p class="row">Diskon <b>-Rp0</b></p>
+        <p class="row row--total">Total Tagihan <b class="total">Rp350.000</b></p>
+        <a href="checkout.html" class="btn btn--solid btn--lg">Checkout</a>
+        <p class="note-sm">Bayar lewat Kosspace supaya transaksi kamu aman dan tercatat.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Kosspace. All rights reserved.</p></footer>
+
+  <script>
+    const fmt = n => 'Rp' + n.toLocaleString('id-ID');
+    const items = [...document.querySelectorAll('.cart-item')];
+    const semua = document.getElementById('pilih-semua');
+    const badge = document.querySelector('.cart__badge');
+    const cartLink = document.querySelector('.cart');
+    const checkout = document.querySelector('.cart-layout aside .btn--lg');
+    const kosong = document.getElementById('kosong');
+    const pilihSemua = document.querySelector('.select-all');
+
+    function hitung() {
+      let total = 0, n = 0;
+      items.forEach(i => {
+        if (i.querySelector('.pilih').checked) {
+          n++;
+          total += i.dataset.price * i.querySelector('.qty-n').textContent;
+        }
+      });
+      document.getElementById('jml').textContent = items.length;
+      document.getElementById('jml-barang').textContent = n;
+      document.querySelectorAll('.total').forEach(e => e.textContent = fmt(total));
+      semua.checked = n > 0 && n === items.length;
+
+      // badge keranjang di navbar = jumlah barang di keranjang
+      badge.textContent = items.length;
+      badge.hidden = items.length === 0;
+      cartLink.setAttribute('aria-label', 'Keranjang, ' + items.length + ' barang');
+
+      // keranjang kosong & tombol checkout
+      kosong.hidden = items.length > 0;
+      pilihSemua.hidden = items.length === 0;
+      checkout.setAttribute('aria-disabled', n === 0);
+      checkout.tabIndex = n === 0 ? -1 : 0;
+    }
+
+    checkout.addEventListener('click', e => {
+      if (checkout.getAttribute('aria-disabled') === 'true') e.preventDefault();
+    });
+
+    items.forEach(i => {
+      const q = i.querySelector('.qty-n');
+      i.querySelector('.pilih').onchange = hitung;
+      i.querySelector('.minus').onclick = () => { if (+q.textContent > 1) { q.textContent--; hitung(); } };
+      i.querySelector('.plus').onclick = () => { q.textContent++; hitung(); };
+      i.querySelector('.trash').onclick = () => { items.splice(items.indexOf(i), 1); i.remove(); hitung(); };
+    });
+    semua.onchange = () => { items.forEach(i => i.querySelector('.pilih').checked = semua.checked); hitung(); };
+    hitung();
+  </script>
+  <script src="app.js" defer></script>
+</body>
+</html>

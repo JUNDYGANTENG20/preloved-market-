@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="icon3/favicon.png">
+  <title>Tambah Produk - Panel Penjual Kosspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog.css">
+  <link rel="stylesheet" href="transaksi.css">
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <div class="navbar__left">
+        <a href="index.html" class="logo" aria-label="Kosspace - Beranda"><img src="icon3/logo.png" alt="Kosspace"></a>
+        <span class="navbar__page">Panel Penjual</span>
+      </div>
+      <div class="user">
+        <span class="avatar">ML</span>
+        <div><b>Maya Lestari</b></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page page--narrow">
+
+    <div class="product-head">
+      <a href="dashboard-penjual.html" class="back" aria-label="Kembali">&larr;</a>
+      <h1>Tambah Produk</h1>
+    </div>
+
+    <form class="product-layout" action="dashboard-penjual.html">
+
+      <section class="panel" aria-labelledby="foto">
+        <h2 id="foto">Foto Produk</h2>
+        <label class="drop drop--square">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.5-7.97A6 6 0 0 1 18 9a4.5 4.5 0 0 1 0 9"/><path d="M12 12v7M9 15l3-3 3 3"/></svg>
+          <b>Foto Utama</b>
+          <input type="file" name="foto-utama" accept="image/*" required>
+        </label>
+        <div class="thumbs-add">
+          <button type="button" aria-label="Tambah foto 2">+</button>
+          <button type="button" aria-label="Tambah foto 3">+</button>
+          <button type="button" aria-label="Tambah foto 4">+</button>
+          <button type="button" aria-label="Tambah foto 5">+</button>
+        </div>
+        <p class="hint">Gunakan foto asli yang jelas dan terang. Maksimal 5 foto, <b>wajib 1 foto utama.</b></p>
+      </section>
+
+      <section class="panel" aria-label="Detail barang">
+        <label class="field">
+          <span class="lbl">Nama Barang</span>
+          <span class="input"><input type="text" name="nama" placeholder="Contoh: Rice Cooker Philips 2L" required></span>
+        </label>
+
+        <div class="grid-2">
+          <label class="field">
+            <span class="lbl">Kategori</span>
+            <span class="input">
+              <select name="kategori" required>
+                <option>Elektronik</option><option>Furniture</option><option>Dapur</option><option>Lainnya</option>
+              </select>
+            </span>
+          </label>
+          <label class="field">
+            <span class="lbl">Harga (Rp)</span>
+            <span class="input"><input type="number" name="harga" min="0" inputmode="numeric" placeholder="50.000" required></span>
+          </label>
+        </div>
+
+        <label class="field">
+          <span class="lbl">Kondisi &amp; Lama Pakai</span>
+          <span class="input"><input type="text" name="kondisi" placeholder="Contoh: Bekas &plusmn; 1 tahun" required></span>
+        </label>
+
+        <label class="field">
+          <span class="lbl">Deskripsi Barang</span>
+          <span class="input input--area">
+            <textarea name="deskripsi" placeholder="Ceritakan kondisi barang, alasan jual, dan kelengkapannya." required></textarea>
+          </span>
+        </label>
+
+        <button type="submit" class="btn btn--solid btn--block btn--shadow" style="padding:14px">Kirim untuk Moderasi</button>
+
+        <div class="alert">
+          <span class="alert__icon" aria-hidden="true">&#9680;</span>
+          <div>Setelah dikirim, barang akan <b style="display:inline">dicek oleh admin</b> dulu sebelum tampil di katalog dan bisa dibeli pembeli.</div>
+        </div>
+      </section>
+
+    </form>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Kosspace. All rights reserved.</p></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

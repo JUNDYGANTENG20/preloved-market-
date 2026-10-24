@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="icon3/favicon.png">
+  <title>Detail Produk - Kosspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <div class="navbar__left">
+        <a href="index.html" class="logo" aria-label="Kosspace - Beranda"><img src="icon3/logo.png" alt="Kosspace"></a>
+        <nav class="navbar__menu" aria-label="Menu utama">
+          <a href="index.html">Beranda</a>
+          <a href="katalog.html">Katalog</a>
+          <a href="index.html#cara-kerja">Cara Kerja</a>
+          <a href="index.html#kontak">Kontak</a>
+        </nav>
+      </div>
+      <div class="navbar__actions">
+        <a href="masuk.html" class="btn btn--outline">Masuk</a>
+        <a href="masuk.html#daftar" class="btn btn--solid">Daftar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Beranda</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="katalog.html">Katalog Barang</a>
+      <span aria-hidden="true">&gt;</span>
+      <span aria-current="page">Detail Produk</span>
+    </nav>
+
+    <p id="p-kosong" hidden style="padding:48px 0;text-align:center">Produk tidak ditemukan. <a href="katalog.html">Kembali ke katalog</a></p>
+    <div class="detail" id="p-detail">
+
+      <!-- GALERI -->
+      <section class="gallery" aria-label="Foto produk">
+        <div class="gallery__main">
+          <img id="foto-utama" src="" alt="">
+        </div>
+        <div class="gallery__thumbs">
+          <button type="button" class="thumb is-active" id="thumb-1" aria-label="Foto 1"><img src="" alt=""></button>
+          <button type="button" class="thumb" disabled aria-label="Foto 2 belum ada"></button>
+          <button type="button" class="thumb" disabled aria-label="Foto 3 belum ada"></button>
+        </div>
+      </section>
+
+      <!-- INFO PRODUK -->
+      <section class="info">
+        <ul class="tags" id="p-tags"></ul>
+
+        <h1 id="p-nama"></h1>
+        <p class="info__price" id="p-harga"></p>
+
+        <div class="info__desc">
+          <h2>Deskripsi Produk</h2>
+          <p id="p-desk"></p>
+          <ul id="p-poin"></ul>
+        </div>
+
+        <!-- PENJUAL -->
+        <div class="seller">
+          <!-- Ganti dengan foto penjual: <img src="img/sarah.jpg" alt="Sarah Melati"> -->
+          <div class="seller__avatar" id="p-avatar" aria-hidden="true"></div>
+          <div>
+            <p class="seller__name" id="p-penjual"></p>
+            <p class="seller__meta">
+              <span class="seller__badge">Akun Terverifikasi</span>
+              <span class="seller__rating" id="p-rating"></span>
+            </p>
+          </div>
+          <a href="#" class="seller__link">Lihat Toko</a>
+        </div>
+
+        <!-- AKSI -->
+        <div class="actions">
+          <button type="button" class="btn btn--muted" aria-disabled="true">Beli Sekarang</button>
+          <button type="button" class="btn btn--outline btn--faded" aria-disabled="true">Tambah Keranjang</button>
+        </div>
+
+        <p class="notice">
+          <span class="notice__dot" aria-hidden="true"></span>
+          Masuk atau daftar dulu untuk membeli atau menghubungi penjual.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Kosspace. All rights reserved.</p>
+  </footer>
+
+  <script src="produk.js"></script>
+  <script src="detail-produk.js" defer></script>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

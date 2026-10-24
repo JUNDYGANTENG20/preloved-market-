@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="icon3/favicon.png">
+  <title>Daftar Jadi Penjual - Kosspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog.css">
+  <link rel="stylesheet" href="transaksi.css">
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="logo" aria-label="Kosspace - Beranda"><img src="icon3/logo.png" alt="Kosspace"></a>
+      <div class="user">
+        <span class="avatar">ML</span>
+        <div><b>Maya Lestari</b></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="form-head">
+      <h1>Daftar Jadi Penjual</h1>
+      <p>Jual barang kos yang tidak terpakai jadi uang tambahan. Khusus mahasiswa terverifikasi.</p>
+    </div>
+
+    <form class="panel form-card" action="#">
+
+      <section class="form-section" aria-labelledby="s1">
+        <h2 class="step" id="s1"><span>1</span> Informasi Toko</h2>
+        <div class="grid-2">
+          <label class="field">
+            <span class="lbl">Nama Toko</span>
+            <span class="input"><input type="text" name="toko" placeholder="Contoh: Toko Maya Berkah" required></span>
+          </label>
+          <label class="field">
+            <span class="lbl">Nomor WhatsApp</span>
+            <span class="input"><input type="tel" name="wa" placeholder="081234567890" required></span>
+          </label>
+        </div>
+        <label class="field">
+          <span class="lbl">Area Kampus / Lokasi Kos</span>
+          <span class="input">
+            <select name="area" required>
+              <option value="" selected disabled>Pilih Area/Kampus</option>
+              <option>Area Kampus 1</option>
+              <option>Area Kampus 2</option>
+              <option>Sekitar Kos</option>
+            </select>
+          </span>
+        </label>
+      </section>
+
+      <section class="form-section" aria-labelledby="s2">
+        <h2 class="step" id="s2"><span>2</span> Verifikasi Mahasiswa</h2>
+        <span class="lbl">Unggah Foto KTM (Kartu Tanda Mahasiswa)</span>
+        <label class="drop">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M14 10h4M14 14h4M6 16c.6-1.4 1.7-2 3-2s2.400.6 3 2"/></svg>
+          <b>Pilih file atau tarik kesini</b>
+          Format: JPG, PNG, PDF (maks 2MB)
+          <input type="file" name="ktm" accept=".jpg,.jpeg,.png,.pdf" required>
+        </label>
+      </section>
+
+      <section class="form-section" aria-labelledby="s3" style="border:0;margin-bottom:8px;padding-bottom:0">
+        <h2 class="step" id="s3"><span>3</span> Rekening Pencairan</h2>
+        <div class="grid-2">
+          <label class="field">
+            <span class="lbl">Bank / E-Wallet</span>
+            <span class="input">
+              <select name="bank">
+                <option>BCA</option><option>BRI</option><option>BNI</option><option>Mandiri</option>
+                <option>Dana</option><option>OVO</option><option>GoPay</option>
+              </select>
+            </span>
+          </label>
+          <label class="field">
+            <span class="lbl">Nomor Rekening / Dana</span>
+            <span class="input"><input type="text" name="rekening" inputmode="numeric" placeholder="Masukkan nomor" required></span>
+          </label>
+        </div>
+      </section>
+
+      <label class="check-line">
+        <input type="checkbox" required>
+        <span>Saya menyetujui <b>Syarat &amp; Ketentuan</b> menjadi penjual di Kosspace. Saya menjamin barang yang dijual adalah milik sendiri dan legal.</span>
+      </label>
+
+      <button type="submit" class="btn btn--solid btn--block btn--shadow" style="padding:14px">Ajukan Jadi Penjual</button>
+
+      <div class="alert" role="status">
+        <span class="alert__icon" aria-hidden="true">&#8987;</span>
+        <div>
+          <b>Status: Menunggu Validasi</b>
+          Pengajuanmu akan dicek tim admin dalam 1x24 jam. Kamu akan menerima notifikasi setelah proses selesai.
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Kosspace. All rights reserved.</p></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

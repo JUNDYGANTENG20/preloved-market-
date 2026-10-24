@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="icon3/favicon.png">
+  <title>Katalog Barang - Kosspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <div class="navbar__left">
+        <a href="index.html" class="logo" aria-label="Kosspace - Beranda"><img src="icon3/logo.png" alt="Kosspace"></a>
+        <nav class="navbar__menu" aria-label="Menu utama">
+          <a href="index.html">Beranda</a>
+          <a href="katalog.html" class="is-active" aria-current="page">Katalog</a>
+          <a href="index.html#cara-kerja">Cara Kerja</a>
+          <a href="index.html#kontak">Kontak</a>
+        </nav>
+      </div>
+      <div class="navbar__actions">
+        <a href="masuk.html" class="btn btn--outline">Masuk</a>
+        <a href="masuk.html#daftar" class="btn btn--solid">Daftar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Beranda</a>
+      <span aria-hidden="true">&gt;</span>
+      <span aria-current="page">Katalog Barang</span>
+    </nav>
+
+    <div class="layout">
+
+      <!-- FILTER -->
+      <aside class="filter">
+        <form id="form-filter">
+          <div class="filter__head">
+            <h2>Filter</h2>
+            <button type="reset" class="link-btn">Reset</button>
+          </div>
+
+          <fieldset>
+            <legend>Kategori</legend>
+            <label class="check"><input type="checkbox" name="kategori" value="elektronik"> Elektronik</label>
+            <label class="check"><input type="checkbox" name="kategori" value="furniture" checked> Furniture</label>
+            <label class="check"><input type="checkbox" name="kategori" value="dapur"> Dapur</label>
+            <label class="check"><input type="checkbox" name="kategori" value="lainnya"> Lainnya</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Rentang Harga</legend>
+            <label class="price">
+              <span>Rp</span>
+              <input type="number" name="harga_min" placeholder="Min" min="0" inputmode="numeric" aria-label="Harga minimum">
+            </label>
+            <label class="price">
+              <span>Rp</span>
+              <input type="number" name="harga_maks" placeholder="Maks" min="0" inputmode="numeric" aria-label="Harga maksimum">
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Kondisi</legend>
+            <label class="check"><input type="checkbox" name="kondisi" value="sangat-baik"> Sangat Baik</label>
+            <label class="check"><input type="checkbox" name="kondisi" value="baik"> Baik</label>
+            <label class="check"><input type="checkbox" name="kondisi" value="cukup"> Cukup</label>
+          </fieldset>
+
+          <button type="submit" class="btn btn--solid btn--block">Terapkan Filter</button>
+        </form>
+      </aside>
+
+      <!-- DAFTAR BARANG -->
+      <section class="catalog" aria-labelledby="judul-katalog">
+        <div class="catalog__head">
+          <div>
+            <h1 id="judul-katalog">Furnitur Kos</h1>
+            <p class="muted">Menampilkan <strong id="jumlah">0</strong> barang</p>
+          </div>
+          <label class="sort">
+            <span>Urutkan:</span>
+            <select name="urutan" id="urutan">
+              <option value="terbaru">Terbaru</option>
+              <option value="termurah">Harga terendah</option>
+              <option value="termahal">Harga tertinggi</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="grid" id="grid-katalog"></div>
+
+        <!-- PAGINATION -->
+        <nav class="pagination" id="pagination" aria-label="Halaman">
+          <a href="#" aria-label="Sebelumnya">&lsaquo;</a>
+          <a href="#" class="is-active" aria-current="page">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#" aria-label="Berikutnya">&rsaquo;</a>
+        </nav>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Kosspace. All rights reserved.</p>
+  </footer>
+
+  <script src="produk.js" defer></script>
+  <script src="katalog.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
