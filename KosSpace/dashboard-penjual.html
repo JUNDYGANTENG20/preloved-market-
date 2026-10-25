@@ -21,8 +21,8 @@
         <span class="navbar__page">Panel Penjual</span>
       </div>
       <div class="user">
-        <div class="user--right"><b>Maya Lestari</b><span class="role">Toko Maya Berkah</span></div>
-        <span class="avatar">ML</span>
+        <div class="user--right"><b id="nama-user">Memuat...</b><span class="role" id="email-user"></span></div>
+        <span class="avatar" id="avatar-user">..</span>
       </div>
     </div>
   </header>
@@ -32,16 +32,16 @@
     <nav class="side" aria-label="Menu penjual">
       <a href="dashboard-penjual.html" class="is-active" aria-current="page"><span class="ico">&#9638;</span> Dashboard</a>
       <a href="#produk"><span class="ico">&#9635;</span> Produk Saya</a>
-      <a href="#pesanan"><span class="ico">&#9776;</span> Pesanan Masuk <span class="badge">2</span></a>
-      <a href="#"><span class="ico">&#9881;</span> Pengaturan</a>
+      <a href="#pesanan"><span class="ico">&#9776;</span> Pesanan Masuk</a>
+      <a href="#" id="tombol-keluar"><span class="ico">&#9099;</span> Keluar</a>
     </nav>
 
     <section>
 
       <div class="stats">
-        <div class="panel stat"><small>Total Produk</small><b>12</b></div>
-        <div class="panel stat stat--warn"><small>Terjual</small><b>8</b></div>
-        <div class="panel stat"><small>Pendapatan</small><b>Rp1.2M</b></div>
+        <div class="panel stat"><small>Total Produk</small><b id="stat-produk">-</b></div>
+        <div class="panel stat stat--warn"><small>Terjual</small><b id="stat-terjual">0</b></div>
+        <div class="panel stat"><small>Pendapatan</small><b id="stat-pendapatan">Rp0</b></div>
       </div>
 
       <!-- PRODUK SAYA -->
@@ -53,46 +53,8 @@
         <div class="table-wrap">
           <table class="table">
             <thead><tr><th>Barang</th><th>Harga</th><th>Status</th><th>Aksi</th></tr></thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div class="cell-item">
-                    <img class="thumb-sm" src="images/rice-cooker.png" alt="">
-                    <div><b>Rice Cooker Philips 2L</b><small>Elektronik</small></div>
-                  </div>
-                </td>
-                <td><b>Rp150.000</b></td>
-                <td><span class="pill pill--ok">Aktif</span></td>
-                <td>
-                  <button type="button" class="icon-btn" aria-label="Ubah Rice Cooker">&#9998;</button>
-                  <button type="button" class="icon-btn" aria-label="Hapus Rice Cooker">&#128465;</button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="cell-item">
-                    <span class="thumb-sm" aria-hidden="true"></span>
-                    <div><b>Lampu Belajar LED</b><small>Elektronik</small></div>
-                  </div>
-                </td>
-                <td><b>Rp45.000</b></td>
-                <td><span class="pill pill--wait">Menunggu Moderasi</span></td>
-                <td><span class="link-sm">Menunggu admin</span></td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="cell-item">
-                    <span class="thumb-sm" aria-hidden="true"></span>
-                    <div><b>Meja Lipat Kayu</b><small>Furniture</small></div>
-                  </div>
-                </td>
-                <td><b>Rp60.000</b></td>
-                <td>
-                  <span class="pill pill--bad">Ditolak</span>
-                  <span class="cell-note">Foto kurang jelas</span>
-                </td>
-                <td><a href="tambah-produk.html" class="btn btn--danger btn--sm">Perbaiki</a></td>
-              </tr>
+            <tbody id="tubuh-produk">
+              <tr><td colspan="4">Memuat produk...</td></tr>
             </tbody>
           </table>
         </div>
@@ -105,22 +67,7 @@
           <table class="table">
             <thead><tr><th>Pesanan / Pembeli</th><th>Total</th><th>Status</th><th>Aksi</th></tr></thead>
             <tbody>
-              <tr>
-                <td>
-                  <div class="cell-item"><div><b>KSP-9928247</b><small>Pembeli: <b>Maya Lestari</b></small></div></div>
-                </td>
-                <td><b>Rp150.000</b></td>
-                <td><span class="pill pill--wait">Perlu Dikirim</span></td>
-                <td><button type="button" class="btn btn--solid btn--sm">Siapkan &amp; Kirim</button></td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="cell-item"><div><b>KSP-8812734</b><small>Pembeli: <b>Andi Wijaya</b></small></div></div>
-                </td>
-                <td><b>Rp85.000</b></td>
-                <td><span class="pill pill--ok">Selesai</span></td>
-                <td><a href="detail-pesanan.html" class="link-sm">Detail Lacak</a></td>
-              </tr>
+              <tr><td colspan="4" style="text-align:center;padding:24px;color:#6b7c75">Belum ada pesanan masuk.</td></tr>
             </tbody>
           </table>
         </div>
@@ -130,6 +77,9 @@
   </main>
 
   <footer class="footer"><p>&copy; 2026 Kosspace. All rights reserved.</p></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2"></script>
+  <script src="supabase.js"></script>
+  <script src="dashboard-penjual.js" defer></script>
   <script src="app.js" defer></script>
 </body>
 </html>

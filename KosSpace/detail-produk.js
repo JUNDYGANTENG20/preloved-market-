@@ -35,4 +35,13 @@ window.produkSiap.then(function () {
   foto.alt = p.namaLengkap;
   foto.src = p.img || 'about:blank';
   thumb.src = p.img || 'about:blank';
+
+  // Pesan di bawah tombol beli sesuai status login
+  ambilSesi().then(sesi => {
+    const notice = $('p-notice');
+    if (!sesi) return; // belum login: biarkan pesan "Masuk atau daftar dulu"
+    notice.textContent = sesi.user.id === p.userId
+      ? 'Ini barang kamu. Kelola di Dashboard Penjual.'
+      : 'Fitur beli & keranjang segera hadir.';
+  });
 });

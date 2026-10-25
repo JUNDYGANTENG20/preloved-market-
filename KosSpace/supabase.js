@@ -81,7 +81,7 @@ function produkDariDb(row) {
 async function renderNavbarAuth() {
   const sesi = await ambilSesi();
   if (!sesi) return;
-  const nama = namaTampil(sesi.user);
+  const nama = namaTampil(sesi.user).split(/\s+/)[0]; // nama depan saja biar navbar tidak turun baris
 
   document.querySelectorAll('a[href="masuk.html"]').forEach(a => {
     a.textContent = nama;
