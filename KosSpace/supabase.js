@@ -17,7 +17,7 @@ const BUCKET_FOTO = 'produk-foto';
 
 // true = daftar/masuk hanya boleh pakai email @student.unsika.ac.id
 // (set false sementara kalau tim mau tes pakai Gmail)
-const WAJIB_EMAIL_UNSIKA = true;
+const WAJIB_EMAIL_UNSIKA = false;
 
 window.db = window.supabase
   ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
