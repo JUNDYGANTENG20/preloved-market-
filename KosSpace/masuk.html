@@ -57,7 +57,6 @@
 
         <p class="divider-text">ATAU MASUK DENGAN</p>
         <button type="button" class="btn btn--google" id="btn-google">Google</button>
-        <p id="pesan-auth" role="alert" hidden style="color:#b3261e;font-size:.9rem;margin-top:.5rem;text-align:center"></p>
 
         <p class="modal__foot">Belum punya akun? <a href="#" data-ke="daftar">Daftar sekarang</a></p>
       </form>
@@ -96,6 +95,9 @@
         <button type="submit" class="btn btn--solid btn--block btn--shadow">Daftar dan Verifikasi</button>
         <p class="terms">Dengan mendaftar, kamu menyetujui <a href="#">Syarat &amp; Ketentuan</a> dan <a href="#">Kebijakan Privasi</a> Kosspace.</p>
       </form>
+
+      <!-- Pesan status/error untuk Masuk & Daftar (di luar form supaya selalu kelihatan) -->
+        <p id="pesan-auth" role="alert" hidden style="color:#b3261e;font-size:.9rem;margin-top:.75rem;text-align:center"></p>
     </div>
   </div>
 
@@ -111,6 +113,7 @@
         panels[k].hidden = k !== nama;
       }
       sub.textContent = teks[nama];
+      const p = document.getElementById('pesan-auth'); if (p) { p.textContent = ''; p.hidden = true; }
     }
     tabs.masuk.onclick = () => buka('masuk');
     tabs.daftar.onclick = () => buka('daftar');
