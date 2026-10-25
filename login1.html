@@ -1,0 +1,96 @@
+<!doctype html>
+<!-- Halaman login: email + password lewat Supabase Auth -->
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — Katalog UMKM Karawang</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="section" id="login">
+        <div class="container login-shell">
+          <div class="login-hero">
+            <span class="badge">Katalog UMKM Karawang</span>
+            <h2>Kelola usaha warga Karawang di satu tempat.</h2>
+            <p>Masuk untuk menambah UMKM baru ke direktori.</p>
+            <ul class="login-features">
+              <li>Data tersimpan di database Supabase</li>
+              <li>Langsung tampil di halaman Direktori</li>
+              <li>Login aman pakai email dan password</li>
+            </ul>
+          </div>
+
+          <div class="login-card">
+            <a href="index.html" class="link-forgot">← Kembali ke Beranda</a>
+            <div class="section-head center">
+              <h2>Selamat datang</h2>
+              <p>
+                Masuk dengan email dan password. Belum punya akun? Isi lalu klik Daftar.
+              </p>
+            </div>
+
+            <form id="form-login" class="login-form">
+              <div>
+                <label for="username">Username (untuk akun baru)</label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  autocomplete="nickname"
+                  maxlength="50"
+                  placeholder="contoh: budi"
+                />
+              </div>
+
+              <div>
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  placeholder="contoh: budi@email.com"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  autocomplete="current-password"
+                  placeholder="minimal 6 karakter"
+                  required
+                />
+              </div>
+
+              <button type="submit" class="btn btn-orange">Masuk</button>
+              <!-- Tombol daftar akun baru (type="button" supaya tidak ikut submit) -->
+              <button type="button" id="tombol-daftar" class="btn btn-outline">
+                Daftar akun baru
+              </button>
+            </form>
+
+            <p id="pesan-login" class="status status-galat" role="alert"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Urutan wajib: library Supabase -> common.js -> login.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2"></script>
+    <script src="js/common.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

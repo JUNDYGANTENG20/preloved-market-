@@ -1,1 +1,316 @@
 
+<<<<<<< Updated upstream
+=======
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <div class="navbar">
+        <div class="container nav-inner">
+          <a href="#beranda" class="logo">Kosspace</a>
+          <nav class="nav-links" id="navLinks">
+            <a href="#beranda" class="active">Beranda</a>
+            <a href="#katalog">Katalog</a>
+            <a href="#cara-kerja">Cara Kerja</a>
+            <a href="#kontak">Kontak</a>
+          </nav>
+          <div class="nav-actions" id="auth-navbar">
+            <button class="burger" id="burger" aria-label="Buka menu"></button>
+          </div>
+        </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="beranda">
+        <div class="container hero-grid">
+          <div class="hero-text">
+            <span class="badge">MARKETPLACE ANAK KOS #1</span>
+            <h1>Barang kos bekas, <span>harga anak kos.</span></h1>
+            <form class="search" id="searchForm">
+              <img src="icon/produk-dicek.png" alt="" class="icon-sm" />
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari barang kos bekas, elektro, furnitur..."/>
+              <button type="submit" class="btn btn-orange">Cari Barang</button>
+            </form>
+            <div class="popular">
+              <span>Populer:</span>
+              <button class="chip">Rice Cooker</button>
+              <button class="chip">Kipas Angin</button>
+              <button class="chip">Meja Belajar</button>
+              <button class="chip">Dispenser</button>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <img
+              src="icon3/main-bg.png"
+              alt="Barang kos bekas berkualitas"
+              class="hero-img"
+            />
+            <div class="float-card">
+              <img src="icon/konfirmasi-diterima.png" alt="" class="icon-sm" />
+              <div>
+                <small>TERJAMIN</small>
+                <strong>Produk Terverifikasi</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRUST BAR -->
+      <section class="trust">
+        <div class="container trust-grid">
+          <div class="trust-item">
+            <span class="icon-box"><img src="icon/penjual-terverifikasi.png" alt=""/></span>
+            <div>
+              <strong>Penjual Terverifikasi</strong>
+              <small>Mahasiswa terdaftar aktif</small>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="icon-box"
+              ><img src="icon/produk-dicek.png" alt=""/></span>
+            <div>
+              <strong>Produk Dicek Admin</strong><small>Kondisi barang terpantau</small>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="icon-box"><img src="icon/harga-terjangkau.png" alt=""/></span>
+            <div>
+              <strong>Harga Lebih Terjangkau</strong>
+              <small>Sesuai kantong mahasiswa</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- KATEGORI -->
+      <section class="section" id="kategori">
+        <div class="container">
+          <div class="section-head center">
+            <h2>Kategori Pilihan</h2>
+            <p>
+              Temukan berbagai kebutuhan kos mulai dari elektronik hingga
+              furniture dengan mudah.
+            </p>
+          </div>
+          <div class="cat-grid">
+            <a href="#katalog" class="cat-card" data-kategori="Elektronik">
+              <span class="cat-img"><img src="icon3/elektronik.png" alt="Elektronik"/></span>
+              <h3>Elektronik</h3>
+              <p>Kipas, Rice Cooker, Lampu</p>
+            </a>
+            <a href="#katalog" class="cat-card" data-kategori="Furniture">
+              <span class="cat-img"><img src="icon3/furniture.png" alt="Furniture"/></span>
+              <h3>Furniture</h3>
+              <p>Meja, Kursi, Lemari, Rak</p>
+            </a>
+            <a href="#katalog" class="cat-card" data-kategori="Kitchen">
+              <span class="cat-img"><img src="icon3/kitchen.png" alt="Kitchen"/></span>
+              <h3>Dapur</h3>
+              <p>Panci, Kompor, Dispenser</p>
+            </a>
+            <a href="#katalog" class="cat-card" data-kategori="Lainnya">
+              <span class="cat-img"><img src="icon3/lainnya.png" alt="Lainnya"/></span>
+              <h3>Lainnya</h3>
+              <p>Buku, Alat Tulis, Dekorasi</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- BARANG TERBARU -->
+      <section class="section section-soft" id="katalog">
+        <div class="container">
+          <div class="section-head split">
+            <div>
+              <h2>Barang Terbaru</h2>
+              <p>Update setiap hari dari sesama anak kos di sekitarmu.</p>
+            </div>
+            <a href="#" class="link-all" id="lihatSemua">Lihat Semua &rarr;</a>
+          </div>
+          <div class="product-grid" id="productGrid"></div>
+          <p class="empty" id="emptyMsg" hidden>
+            Barang tidak ditemukan. Coba kata kunci lain.
+          </p>
+        </div>
+      </section>
+
+      <!-- CTA JUAL -->
+      <section class="section">
+        <div class="container">
+          <div class="cta">
+            <div class="cta-text">
+              <h2>Punya barang kos yang sudah tidak dipakai?</h2>
+              <p>
+                Jual di Kosspace dan bantu sesama anak kos mendapatkan barang
+                impian dengan harga miring. Cepat, mudah, dan aman!
+              </p>
+              <a href="#jual-barang" class="btn btn-orange btn-lg" id="mulaiJual">Mulai Jual Sekarang</a>
+            </div>
+            <div class="seller-card">
+              <div class="seller-top">
+                <img
+                  src="images/Prabowo.png"
+                  alt="Prabowo Subianto"
+                  class="avatar"
+                />
+                <div>
+                  <strong>Prabowo Subianto</strong
+                  ><small>Penjual Terkikir</small>
+                </div>
+              </div>
+              <div class="lines">
+                <p>Menjual barang kos bekas berkualitas.</p>
+                <p>Lokasi: Sekitar UNSIKA</p>
+                <p>Status: Penjual aktif</p>
+              </div>
+              <div class="seller-stats">
+                <div><b>12</b><small>BARANG TERJUAL</small></div>
+                <div class="right">
+                  <b class="orange">1.0</b><small>RATING TOKO</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARA KERJA -->
+      <section class="section" id="cara-kerja">
+        <div class="container">
+          <div class="section-head center">
+            <h2>Cara Kerja di Kosspace</h2>
+            <p>
+              Mudah, transparan, dan terpercaya. Ikuti 4 langkah sederhana ini.
+            </p>
+          </div>
+          <div class="steps">
+            <div class="step">
+              <span class="step-icon"><img src="icon/produk-dicek.png" alt="" /></span>
+              <h3>Cari &amp; Pilih</h3>
+              <p>
+                Telusuri katalog barang bekas berkualitas yang kamu butuhkan.
+              </p>
+            </div>
+            <div class="step">
+              <span class="step-icon"
+                ><img src="icon/keranjang.png" alt="" /></span>
+              <h3>Keranjang &amp; Checkout</h3>
+              <p>Masukkan barang ke keranjang dan pilih metode pengiriman.</p>
+            </div>
+            <div class="step">
+              <span class="step-icon"><img src="icon/bayar-lacak.png" alt="" /></span>
+              <h3>Bayar &amp; Lacak</h3>
+              <p>Lakukan pembayaran aman dan pantau status pesananmu.</p>
+            </div>
+            <div class="step">
+              <span class="step-icon"><img src="icon/konfirmasi-diterima.png" alt="" /></span>
+              <h3>Konfirmasi Diterima</h3>
+              <p>Terima barang dan beri ulasan untuk membantu sesama.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="product-dialog" id="productDialog" aria-labelledby="productDialogTitle">
+      <form id="productForm" class="product-form">
+        <div class="product-form-heading">
+          <div>
+            <span class="badge">Pasang barang</span>
+            <h2 id="productDialogTitle">Jual barangmu</h2>
+            <p>Isi informasi barang dengan jelas agar mudah ditemukan.</p>
+          </div>
+          <button type="button" class="dialog-close" id="closeProductDialog" aria-label="Tutup form">&times;</button>
+        </div>
+
+        <label for="productName">Nama barang</label>
+        <input id="productName" name="name" type="text" maxlength="100" required />
+
+        <label for="productDescription">Deskripsi</label>
+        <textarea id="productDescription" name="description" rows="3" maxlength="1000" required></textarea>
+
+        <div class="product-form-row">
+          <div>
+            <label for="productPrice">Harga (Rp)</label>
+            <input id="productPrice" name="price" type="number" min="0" step="1000" required />
+          </div>
+          <div>
+            <label for="productCategory">Kategori</label>
+            <select id="productCategory" name="category" required>
+              <option value="">Pilih kategori</option>
+              <option value="Elektronik">Elektronik</option>
+              <option value="Furniture">Furniture</option>
+              <option value="Kitchen">Dapur</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="productCondition">Kondisi</label>
+        <select id="productCondition" name="condition" required>
+          <option value="">Pilih kondisi</option>
+          <option value="Baru">Baru</option>
+          <option value="Bekas - seperti baru">Bekas - seperti baru</option>
+          <option value="Bekas - layak pakai">Bekas - layak pakai</option>
+        </select>
+
+        <label for="productImage">URL foto (opsional, harus HTTPS)</label>
+        <input id="productImage" name="image_url" type="url" placeholder="https://contoh.com/foto.jpg" />
+
+        <p class="status" id="productStatus" role="status" aria-live="polite"></p>
+        <div class="product-form-actions">
+          <button type="button" class="btn btn-outline" id="cancelProduct">Batal</button>
+          <button type="submit" class="btn btn-orange" id="saveProduct">Terbitkan barang</button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="kontak">
+      <div class="container footer-grid">
+        <div>
+          <a href="#beranda" class="logo">Kosspace</a>
+          <p class="foot-desc">
+            Platform jual beli barang bekas terpercaya khusus mahasiswa di
+            sekitar area kampus.
+          </p>
+          <div class="socials">
+            <a href="#" aria-label="Facebook"><img src="images/facebook.png" alt=""/></a>
+            <a href="#" aria-label="Instagram"><img src="images/instagram.png" alt=""/></a>
+            <a href="#" aria-label="X"><img src="images/x.png" alt="" /></a>
+          </div>
+        </div>
+        <div>
+          <h4>Menu</h4>
+          <a href="#beranda">Beranda</a><a href="#katalog">Katalog Barang</a>
+          <a href="#cara-kerja">Cara Kerja</a><a href="#kontak">Kontak Kami</a>
+        </div>
+        <div>
+          <h4>Kategori</h4>
+          <a href="#">Elektronik</a><a href="#">Furnitur</a>
+          <a href="#">Perabotan Dapur</a><a href="#">Hobi &amp; Lainnya</a>
+        </div>
+        <div>
+          <h4>Bantuan</h4>
+          <a href="#">Pusat Bantuan</a><a href="#">Syarat &amp; Ketentuan</a>
+          <a href="#">Kebijakan Privasi</a><a href="#">Lapor Kendala</a>
+        </div>
+      </div>
+      <div class="container copy">
+        &copy; 2026 Kosspace. Semua hak dilindungi.
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2"></script>
+    <script src="js/common.js"></script>
+    <script src="js/products.js"></script>
+  </body>
+</html>
+>>>>>>> Stashed changes
