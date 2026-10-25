@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="icon3/favicon.png">
+  <title>Panel Admin - Kosspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog.css">
+  <link rel="stylesheet" href="transaksi.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <header class="navbar navbar--admin">
+    <div class="container navbar__inner">
+      <div class="navbar__left">
+        <a href="index.html" class="logo" aria-label="Kosspace - Beranda"><img src="icon3/logo.png" alt="Kosspace"></a>
+        <span class="tag-admin">ADMIN</span>
+      </div>
+      <div class="user">
+        <div class="user--right"><b>Admin Utama</b><span class="role">Superadmin</span></div>
+        <span class="avatar">AU</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container shell">
+
+    <nav class="side" aria-label="Menu admin">
+      <a href="#moderasi" class="is-active" aria-current="page"><span class="ico">&#9635;</span> Moderasi Produk <span class="badge">2</span></a>
+      <a href="#validasi"><span class="ico">&#9786;</span> Validasi Akun <span class="badge badge--gray">1</span></a>
+      <a href="#pembayaran"><span class="ico">&#9776;</span> Verifikasi Pesanan</a>
+      <a href="#"><span class="ico">&#9638;</span> Laporan &amp; Statistik</a>
+    </nav>
+
+    <section>
+
+      <!-- MODERASI PRODUK -->
+      <div class="panel panel--flush" id="moderasi">
+        <div class="panel__head"><h2>Moderasi Produk Menunggu</h2></div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Barang / Penjual</th><th>Harga</th><th>Foto</th><th>Aksi Moderasi</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><div class="cell-item"><div><b>Kipas Angin Uniding Cosmos</b><small>Oleh: <b>Sari Lestari</b></small></div></div></td>
+                <td><b>Rp120.000</b></td>
+                <td><span class="ph"></span><span class="ph"></span></td>
+                <td>
+                  <span class="actions-row">
+                    <button type="button" class="btn btn--solid btn--sm">Setujui</button>
+                    <button type="button" class="btn btn--ghost btn--sm">Minta Revisi</button>
+                    <button type="button" class="btn btn--danger btn--sm">Tolak</button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td><div class="cell-item"><div><b>Meja Belajar Kayu Jati</b><small>Oleh: <b>Ari Pratama</b></small></div></div></td>
+                <td><b>Rp250.000</b></td>
+                <td><span class="ph"></span></td>
+                <td>
+                  <span class="actions-row">
+                    <button type="button" class="btn btn--solid btn--sm">Setujui</button>
+                    <button type="button" class="btn btn--ghost btn--sm">Minta Revisi</button>
+                    <button type="button" class="btn btn--danger btn--sm">Tolak</button>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- VALIDASI AKUN PENJUAL -->
+      <div class="panel panel--flush" id="validasi">
+        <div class="panel__head"><h2>Validasi Akun Penjual Baru</h2></div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Nama Lengkap / Kampus</th><th>Dokumen KTM</th><th>Verifikasi</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><div class="cell-item"><div><b>Budi Santoso</b><small>Universitas Singaperbangsa Karawang</small></div></div></td>
+                <td><a href="#" class="doc">ktm_budi_santoso.jpg</a></td>
+                <td>
+                  <span class="actions-row">
+                    <button type="button" class="btn btn--solid btn--sm">Setujui</button>
+                    <button type="button" class="btn btn--danger-o btn--sm">Tolak</button>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- VERIFIKASI PEMBAYARAN MANUAL -->
+      <div class="panel panel--flush" id="pembayaran">
+        <div class="panel__head"><h2>Verifikasi Pembayaran Manual</h2></div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Pesanan</th><th>Jumlah Transfer</th><th>Bukti</th><th>Konfirmasi</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><div class="cell-item"><div><b>KSP-9928247</b></div></div></td>
+                <td><b>Rp152.000</b></td>
+                <td><span class="ph"></span></td>
+                <td>
+                  <span class="actions-row">
+                    <button type="button" class="btn btn--solid btn--sm">Diterima</button>
+                    <button type="button" class="btn btn--danger-o btn--sm">Gagal</button>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Kosspace. All rights reserved.</p></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

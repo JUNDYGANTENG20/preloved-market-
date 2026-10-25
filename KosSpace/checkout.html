@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="icon3/favicon.png">
+  <title>Checkout - Kosspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog.css">
+  <link rel="stylesheet" href="transaksi.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <div class="navbar__left">
+        <a href="index.html" class="logo" aria-label="Kosspace - Beranda"><img src="icon3/logo.png" alt="Kosspace"></a>
+        <span class="navbar__page">Checkout</span>
+      </div>
+      <div class="user">
+        <span class="avatar">ML</span>
+        <div><b>Maya Lestari</b></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page page--narrow">
+    <form class="checkout-layout" action="detail-pesanan.html">
+
+      <div class="stack">
+        <section class="panel">
+          <h2>Pilihan Serah Terima</h2>
+          <div class="options options--2" role="radiogroup">
+            <label class="option">
+              <input type="radio" name="serah-terima" value="cod" checked>
+              <b>COD (Titik Temu)</b>
+              Ketemuan langsung di area kampus atau kos, bayar langsung di tempat.
+            </label>
+            <label class="option">
+              <input type="radio" name="serah-terima" value="kirim">
+              <b>Kirim ke Kos</b>
+              Barang dikirim ke alamat kos kamu lewat kurir.
+            </label>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Metode Pembayaran</h2>
+          <div class="options" role="radiogroup">
+            <label class="option option--pay">
+              <span class="option__logo">QRIS</span>
+              <b>QRIS (Gopay, OVO, Dana)</b>
+              <input type="radio" name="bayar" value="qris" checked>
+            </label>
+            <label class="option option--pay">
+              <span class="option__logo">BANK</span>
+              <b>Transfer Bank (Mandiri, BCA, BRI)</b>
+              <input type="radio" name="bayar" value="transfer">
+            </label>
+            <label class="option option--pay">
+              <span class="option__logo">E-WAL</span>
+              <b>ShopeePay / LinkAja</b>
+              <input type="radio" name="bayar" value="ewallet">
+            </label>
+          </div>
+        </section>
+      </div>
+
+      <aside class="panel" aria-label="Ringkasan pesanan">
+        <h2>Ringkasan Pesanan</h2>
+
+        <!-- Ganti src dengan foto asli di folder img/ -->
+        <div class="order-item">
+          <img class="thumb-sm" src="images/rice-cooker.png" alt="">
+          <div><b>Rice Cooker Philips 2L</b>1 x Rp150.000</div>
+        </div>
+        <div class="order-item">
+          <img class="thumb-sm" src="images/meja-belajar.png" alt="">
+          <div><b>Meja Belajar Minimalis</b>1 x Rp200.000</div>
+        </div>
+
+        <hr style="border:0;border-top:1px solid var(--border);margin:14px 0">
+        <p class="row">Subtotal <b>Rp350.000</b></p>
+        <p class="row">Biaya Layanan <b>Rp2.000</b></p>
+        <p class="row row--total">Total Pembayaran <b>Rp352.000</b></p>
+
+        <button type="submit" class="btn btn--solid btn--lg">Bayar Sekarang</button>
+        <p class="note-sm">Dengan membayar, kamu setuju dengan syarat dan ketentuan Kosspace.</p>
+      </aside>
+
+    </form>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Kosspace. All rights reserved.</p></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

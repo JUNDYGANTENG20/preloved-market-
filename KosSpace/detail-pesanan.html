@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="icon3/favicon.png">
+  <title>Detail Pesanan - Kosspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog.css">
+  <link rel="stylesheet" href="transaksi.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <div class="navbar__left">
+        <a href="index.html" class="logo" aria-label="Kosspace - Beranda"><img src="icon3/logo.png" alt="Kosspace"></a>
+        <nav class="navbar__menu" aria-label="Menu utama">
+          <a href="index.html">Beranda</a>
+          <a href="katalog.html">Katalog</a>
+          <a href="detail-pesanan.html" class="is-active" aria-current="page">Pesanan Saya</a>
+        </nav>
+      </div>
+      <div class="user">
+        <span class="avatar">ML</span>
+        <div><b>Maya Lestari</b></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page page--narrow">
+
+    <div class="order-head">
+      <div>
+        <h1>Detail Pesanan</h1>
+        <p>Nomor Pesanan: <b>KSP-99282417</b></p>
+      </div>
+      <span class="status-badge">Sedang Dikirim</span>
+    </div>
+
+    <div class="order-layout">
+
+      <div class="stack">
+        <section class="panel">
+          <h2>Status Pengiriman</h2>
+          <ol class="timeline">
+            <li>
+              <span class="dot" aria-hidden="true">&#10003;</span>
+              <b>Pembayaran Dikonfirmasi</b>
+              <time>13 Jan 2026, 10:15 WIB</time>
+              <p>Pembayaran via QRIS berhasil dicek oleh tim Kosspace.</p>
+            </li>
+            <li>
+              <span class="dot" aria-hidden="true">&#10003;</span>
+              <b>Pesanan Disetujui Penjual</b>
+              <time>13 Jan 2026, 14:00 WIB</time>
+              <p>Penjual (Teddy) sedang menyiapkan barang.</p>
+            </li>
+            <li class="is-now" aria-current="step">
+              <span class="dot" aria-hidden="true"></span>
+              <b>Barang Sedang Dikirim</b>
+              <time>14 Jan 2026, 09:00 WIB</time>
+              <p>Nomor resi: <b style="display:inline">KSP-RES-00281</b></p>
+              <p>Kurir sedang dalam perjalanan menuju tujuanmu.</p>
+            </li>
+            <li class="is-wait">
+              <span class="dot" aria-hidden="true"></span>
+              <b>Pesanan Selesai</b>
+              <p>Menunggu konfirmasi dari kamu.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="panel seller-card">
+          <span class="avatar">T</span>
+          <div><b>Teddy</b><small>Penjual Terverifikasi</small></div>
+          <a href="#" class="btn btn--outline">Chat Penjual</a>
+        </section>
+      </div>
+
+      <aside class="panel" aria-label="Ringkasan barang">
+        <h2>Ringkasan Barang</h2>
+        <div class="order-item">
+          <img class="thumb-sm" src="images/rice-cooker.png" alt="" style="width:48px;height:48px">
+          <div><b>Rice Cooker Philips 2L HD3119/30</b>Rp150.000</div>
+        </div>
+        <hr style="border:0;border-top:1px solid var(--border);margin:14px 0">
+        <p class="row">Metode Serah Terima <b>Kirim ke Kos</b></p>
+        <p class="row">Alamat Pengiriman <b>Kos Mawar, Kamar 12,<br>Karawang</b></p>
+        <button type="button" class="btn btn--solid btn--lg">Konfirmasi Barang Diterima</button>
+        <p class="note-sm">Konfirmasi hanya setelah barang benar-benar kamu terima.</p>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Kosspace. All rights reserved.</p></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

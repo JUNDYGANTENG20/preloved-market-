@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="icon3/favicon.png">
+  <title>Masuk atau Daftar - Kosspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog.css">
+  <link rel="stylesheet" href="transaksi.css">
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+  <!-- Ikon -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12"/><circle cx="12" cy="12" r="3"/></symbol>
+  </svg>
+
+  <!-- Halaman di belakang modal: ganti dengan halaman yang memanggil modal ini -->
+  <div class="overlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="judul-modal">
+      <button type="button" class="modal__close" id="tutup" aria-label="Tutup">&#10005;</button>
+
+      <h1 id="judul-modal"><img src="icon3/logo.png" alt="Kosspace"></h1>
+      <p class="modal__sub" id="sub-modal">Beli &amp; jual barang kos dengan mudah.</p>
+
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" id="tab-masuk" aria-selected="true" aria-controls="panel-masuk">Masuk</button>
+        <button type="button" role="tab" id="tab-daftar" aria-selected="false" aria-controls="panel-daftar">Daftar</button>
+      </div>
+
+      <!-- MASUK -->
+      <form id="panel-masuk" role="tabpanel" aria-labelledby="tab-masuk" method="post">
+        <label class="field">
+          <span class="lbl">Email</span>
+          <span class="input">
+            <svg><use href="#i-mail"/></svg>
+            <input type="email" name="email" placeholder="nama@email.com" autocomplete="email" required>
+          </span>
+        </label>
+        <label class="field">
+          <span class="lbl">Kata Sandi <a href="#" class="link">Lupa Kata Sandi?</a></span>
+          <span class="input">
+            <svg><use href="#i-lock"/></svg>
+            <input type="password" name="sandi" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" autocomplete="current-password" required>
+            <button type="button" class="eye" aria-label="Tampilkan kata sandi"><svg><use href="#i-eye"/></svg></button>
+          </span>
+        </label>
+        <button type="submit" class="btn btn--solid btn--block btn--shadow">Masuk Sekarang</button>
+
+        <p class="divider-text">ATAU MASUK DENGAN</p>
+        <button type="button" class="btn btn--google" id="btn-google">Google</button>
+        <p id="pesan-auth" role="alert" hidden style="color:#b3261e;font-size:.9rem;margin-top:.5rem;text-align:center"></p>
+
+        <p class="modal__foot">Belum punya akun? <a href="#" data-ke="daftar">Daftar sekarang</a></p>
+      </form>
+
+      <!-- DAFTAR -->
+      <form id="panel-daftar" role="tabpanel" aria-labelledby="tab-daftar" method="post" hidden>
+        <label class="field">
+          <span class="lbl">Nama Lengkap</span>
+          <span class="input">
+            <svg><use href="#i-user"/></svg>
+            <input type="text" name="nama" placeholder="Contoh: Budi Santoso" autocomplete="name" required>
+          </span>
+        </label>
+        <label class="field">
+          <span class="lbl">Email</span>
+          <span class="input">
+            <svg><use href="#i-mail"/></svg>
+            <input type="email" name="email" placeholder="nama@email.com" autocomplete="email" required>
+          </span>
+        </label>
+        <label class="field">
+          <span class="lbl">Nomor WhatsApp</span>
+          <span class="input">
+            <svg><use href="#i-phone"/></svg>
+            <input type="tel" name="wa" placeholder="081234567890" autocomplete="tel" required>
+          </span>
+        </label>
+        <label class="field">
+          <span class="lbl">Kata Sandi</span>
+          <span class="input">
+            <svg><use href="#i-lock"/></svg>
+            <input type="password" name="sandi" placeholder="Min. 8 karakter" minlength="8" autocomplete="new-password" required>
+            <button type="button" class="eye" aria-label="Tampilkan kata sandi"><svg><use href="#i-eye"/></svg></button>
+          </span>
+        </label>
+        <button type="submit" class="btn btn--solid btn--block btn--shadow">Daftar dan Verifikasi</button>
+        <p class="terms">Dengan mendaftar, kamu menyetujui <a href="#">Syarat &amp; Ketentuan</a> dan <a href="#">Kebijakan Privasi</a> Kosspace.</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const tabs = { masuk: document.getElementById('tab-masuk'), daftar: document.getElementById('tab-daftar') };
+    const panels = { masuk: document.getElementById('panel-masuk'), daftar: document.getElementById('panel-daftar') };
+    const sub = document.getElementById('sub-modal');
+    const teks = { masuk: 'Beli & jual barang kos dengan mudah.', daftar: 'Bergabunglah dengan komunitas anak kos.' };
+
+    function buka(nama) {
+      for (const k in tabs) {
+        tabs[k].setAttribute('aria-selected', k === nama);
+        panels[k].hidden = k !== nama;
+      }
+      sub.textContent = teks[nama];
+    }
+    tabs.masuk.onclick = () => buka('masuk');
+    tabs.daftar.onclick = () => buka('daftar');
+    document.querySelector('[data-ke="daftar"]').onclick = e => { e.preventDefault(); buka('daftar'); };
+
+    // Tampilkan / sembunyikan kata sandi
+    document.querySelectorAll('.eye').forEach(b => {
+      b.onclick = () => {
+        const i = b.parentElement.querySelector('input');
+        i.type = i.type === 'password' ? 'text' : 'password';
+      };
+    });
+
+    document.getElementById('tutup').onclick = () => {
+      if (history.length > 1) history.back(); else location.href = 'index.html';
+    };
+    if (location.hash === '#daftar') buka('daftar');
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="auth.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

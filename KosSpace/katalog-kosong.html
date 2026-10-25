@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="icon3/favicon.png">
+  <title>Barang tidak ditemukan - Kosspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <div class="navbar__left">
+        <a href="index.html" class="logo" aria-label="Kosspace - Beranda"><img src="icon3/logo.png" alt="Kosspace"></a>
+        <nav class="navbar__menu" aria-label="Menu utama">
+          <a href="index.html">Beranda</a>
+          <a href="katalog.html">Katalog</a>
+          <a href="index.html#cara-kerja">Cara Kerja</a>
+          <a href="index.html#kontak">Kontak</a>
+        </nav>
+      </div>
+      <div class="navbar__actions">
+        <a href="masuk.html" class="btn btn--outline">Masuk</a>
+        <a href="masuk.html#daftar" class="btn btn--solid">Daftar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- KONDISI KOSONG -->
+    <section class="empty" aria-labelledby="judul-kosong">
+      <div class="empty__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="M21 21l-4.3-4.3"/>
+        </svg>
+      </div>
+      <h1 id="judul-kosong">Barang tidak ditemukan</h1>
+      <p>Maaf, kami tidak dapat menemukan barang yang sesuai dengan pencarian atau filter kamu. Coba ubah filter atau cari kata kunci lain.</p>
+      <div class="empty__actions">
+        <a href="katalog.html" class="btn btn--outline">Hapus Semua Filter</a>
+        <button type="button" class="btn btn--solid">Beri Tahu Saya</button>
+      </div>
+      <p class="empty__note">Kami akan memberi tahu kamu saat barang yang dicari tersedia.</p>
+    </section>
+
+    <!-- REKOMENDASI -->
+    <section class="suggest" aria-labelledby="judul-saran">
+      <div class="suggest__head">
+        <h2 id="judul-saran">Mungkin Kamu Suka</h2>
+        <a href="katalog.html" class="suggest__more">Lihat Lainnya</a>
+      </div>
+
+      <div class="grid grid--4">
+
+        <!-- Ganti src dengan foto asli di folder img/ -->
+        <article class="card card--simple">
+          <a href="detail-produk.html?id=rice-cooker-philips-2l" class="card__link">
+            <div class="card__img">
+              <img src="images/rice-cooker.png" alt="Rice Cooker Philips 2L" loading="lazy">
+            </div>
+            <div class="card__body">
+              <h3>Rice Cooker Philips 2L</h3>
+              <p class="price-tag">Rp150.000</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card card--simple">
+          <a href="detail-produk.html?id=meja-belajar-minimalis" class="card__link">
+            <div class="card__img">
+              <img src="images/meja-belajar.png" alt="Meja Belajar Minimalis" loading="lazy">
+            </div>
+            <div class="card__body">
+              <h3>Meja Belajar Minimalis</h3>
+              <p class="price-tag">Rp200.000</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card card--simple">
+          <a href="detail-produk.html?id=kipas-angin-miyako" class="card__link">
+            <div class="card__img">
+              <img src="images/kipas.png" alt="Kipas Angin Miyako" loading="lazy">
+            </div>
+            <div class="card__body">
+              <h3>Kipas Angin Miyako</h3>
+              <p class="price-tag">Rp100.000</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card card--simple">
+          <a href="detail-produk.html?id=rak-buku" class="card__link">
+            <div class="card__img">
+              <img src="images/rak-buku.png" alt="Rak Buku" loading="lazy">
+            </div>
+            <div class="card__body">
+              <h3>Rak Buku</h3>
+              <p class="price-tag">Rp75.000</p>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Kosspace. All rights reserved.</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

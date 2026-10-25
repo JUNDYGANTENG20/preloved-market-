@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="icon3/favicon.png">
+  <title>Dashboard - Panel Penjual Kosspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="katalog.css">
+  <link rel="stylesheet" href="transaksi.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container navbar__inner">
+      <div class="navbar__left">
+        <a href="index.html" class="logo" aria-label="Kosspace - Beranda"><img src="icon3/logo.png" alt="Kosspace"></a>
+        <span class="navbar__page">Panel Penjual</span>
+      </div>
+      <div class="user">
+        <div class="user--right"><b>Maya Lestari</b><span class="role">Toko Maya Berkah</span></div>
+        <span class="avatar">ML</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container shell">
+
+    <nav class="side" aria-label="Menu penjual">
+      <a href="dashboard-penjual.html" class="is-active" aria-current="page"><span class="ico">&#9638;</span> Dashboard</a>
+      <a href="#produk"><span class="ico">&#9635;</span> Produk Saya</a>
+      <a href="#pesanan"><span class="ico">&#9776;</span> Pesanan Masuk <span class="badge">2</span></a>
+      <a href="#"><span class="ico">&#9881;</span> Pengaturan</a>
+    </nav>
+
+    <section>
+
+      <div class="stats">
+        <div class="panel stat"><small>Total Produk</small><b>12</b></div>
+        <div class="panel stat stat--warn"><small>Terjual</small><b>8</b></div>
+        <div class="panel stat"><small>Pendapatan</small><b>Rp1.2M</b></div>
+      </div>
+
+      <!-- PRODUK SAYA -->
+      <div class="panel panel--flush" id="produk">
+        <div class="panel__head">
+          <h2>Produk Saya</h2>
+          <a href="tambah-produk.html" class="btn btn--solid btn--sm">+ Tambah Produk</a>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Barang</th><th>Harga</th><th>Status</th><th>Aksi</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="cell-item">
+                    <img class="thumb-sm" src="images/rice-cooker.png" alt="">
+                    <div><b>Rice Cooker Philips 2L</b><small>Elektronik</small></div>
+                  </div>
+                </td>
+                <td><b>Rp150.000</b></td>
+                <td><span class="pill pill--ok">Aktif</span></td>
+                <td>
+                  <button type="button" class="icon-btn" aria-label="Ubah Rice Cooker">&#9998;</button>
+                  <button type="button" class="icon-btn" aria-label="Hapus Rice Cooker">&#128465;</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-item">
+                    <span class="thumb-sm" aria-hidden="true"></span>
+                    <div><b>Lampu Belajar LED</b><small>Elektronik</small></div>
+                  </div>
+                </td>
+                <td><b>Rp45.000</b></td>
+                <td><span class="pill pill--wait">Menunggu Moderasi</span></td>
+                <td><span class="link-sm">Menunggu admin</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-item">
+                    <span class="thumb-sm" aria-hidden="true"></span>
+                    <div><b>Meja Lipat Kayu</b><small>Furniture</small></div>
+                  </div>
+                </td>
+                <td><b>Rp60.000</b></td>
+                <td>
+                  <span class="pill pill--bad">Ditolak</span>
+                  <span class="cell-note">Foto kurang jelas</span>
+                </td>
+                <td><a href="tambah-produk.html" class="btn btn--danger btn--sm">Perbaiki</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PESANAN MASUK -->
+      <div class="panel panel--flush" id="pesanan">
+        <div class="panel__head"><h2>Pesanan Masuk</h2></div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Pesanan / Pembeli</th><th>Total</th><th>Status</th><th>Aksi</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="cell-item"><div><b>KSP-9928247</b><small>Pembeli: <b>Maya Lestari</b></small></div></div>
+                </td>
+                <td><b>Rp150.000</b></td>
+                <td><span class="pill pill--wait">Perlu Dikirim</span></td>
+                <td><button type="button" class="btn btn--solid btn--sm">Siapkan &amp; Kirim</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-item"><div><b>KSP-8812734</b><small>Pembeli: <b>Andi Wijaya</b></small></div></div>
+                </td>
+                <td><b>Rp85.000</b></td>
+                <td><span class="pill pill--ok">Selesai</span></td>
+                <td><a href="detail-pesanan.html" class="link-sm">Detail Lacak</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer"><p>&copy; 2026 Kosspace. All rights reserved.</p></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>
