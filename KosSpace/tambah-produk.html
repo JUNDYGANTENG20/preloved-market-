@@ -21,8 +21,8 @@
         <span class="navbar__page">Panel Penjual</span>
       </div>
       <div class="user">
-        <span class="avatar">ML</span>
-        <div><b>Maya Lestari</b></div>
+        <span class="avatar" id="avatar-user">..</span>
+        <div><b id="nama-user">Memuat...</b></div>
       </div>
     </div>
   </header>
@@ -34,7 +34,7 @@
       <h1>Tambah Produk</h1>
     </div>
 
-    <form class="product-layout" action="dashboard-penjual.html">
+    <form class="product-layout" id="form-produk" action="dashboard-penjual.html">
 
       <section class="panel" aria-labelledby="foto">
         <h2 id="foto">Foto Produk</h2>
@@ -55,7 +55,7 @@
       <section class="panel" aria-label="Detail barang">
         <label class="field">
           <span class="lbl">Nama Barang</span>
-          <span class="input"><input type="text" name="nama" placeholder="Contoh: Rice Cooker Philips 2L" required></span>
+          <span class="input"><input type="text" name="nama" maxlength="100" placeholder="Contoh: Rice Cooker Philips 2L" required></span>
         </label>
 
         <div class="grid-2">
@@ -63,7 +63,7 @@
             <span class="lbl">Kategori</span>
             <span class="input">
               <select name="kategori" required>
-                <option>Elektronik</option><option>Furniture</option><option>Dapur</option><option>Lainnya</option>
+                <option value="Elektronik">Elektronik</option><option value="Furniture">Furniture</option><option value="Kitchen">Dapur</option><option value="Lainnya">Lainnya</option>
               </select>
             </span>
           </label>
@@ -73,19 +73,32 @@
           </label>
         </div>
 
-        <label class="field">
-          <span class="lbl">Kondisi &amp; Lama Pakai</span>
-          <span class="input"><input type="text" name="kondisi" placeholder="Contoh: Bekas &plusmn; 1 tahun" required></span>
-        </label>
+        <div class="grid-2">
+          <label class="field">
+            <span class="lbl">Kondisi</span>
+            <span class="input">
+              <select name="kondisi" required>
+                <option value="Baru">Baru</option>
+                <option value="Bekas - seperti baru">Bekas - seperti baru</option>
+                <option value="Bekas - layak pakai">Bekas - layak pakai</option>
+              </select>
+            </span>
+          </label>
+          <label class="field">
+            <span class="lbl">Lama Pakai (opsional)</span>
+            <span class="input"><input type="text" name="lama_pakai" maxlength="50" placeholder="Contoh: &plusmn; 1 tahun"></span>
+          </label>
+        </div>
 
         <label class="field">
           <span class="lbl">Deskripsi Barang</span>
           <span class="input input--area">
-            <textarea name="deskripsi" placeholder="Ceritakan kondisi barang, alasan jual, dan kelengkapannya." required></textarea>
+            <textarea name="deskripsi" maxlength="900" placeholder="Ceritakan kondisi barang, alasan jual, dan kelengkapannya." required></textarea>
           </span>
         </label>
 
-        <button type="submit" class="btn btn--solid btn--block btn--shadow" style="padding:14px">Kirim untuk Moderasi</button>
+        <button type="submit" id="tombol-kirim" class="btn btn--solid btn--block btn--shadow" style="padding:14px">Kirim untuk Moderasi</button>
+        <p id="status-produk" role="status" aria-live="polite" style="margin:10px 0 0;font-weight:600" hidden></p>
 
         <div class="alert">
           <span class="alert__icon" aria-hidden="true">&#9680;</span>
@@ -97,6 +110,9 @@
   </main>
 
   <footer class="footer"><p>&copy; 2026 Kosspace. All rights reserved.</p></footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2"></script>
+  <script src="supabase.js"></script>
+  <script src="tambah-produk.js" defer></script>
   <script src="app.js" defer></script>
 </body>
 </html>

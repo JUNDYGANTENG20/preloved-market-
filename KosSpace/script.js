@@ -1,7 +1,7 @@
 /* script.js — khusus beranda (index.html) */
 (function () {
-  // ===== Data barang: dari produk.js =====
-  const PRODUK = window.PRODUK.filter(p => p.beranda !== false);
+  // ===== Data barang: dari produk.js (diisi setelah Supabase selesai dimuat) =====
+  let PRODUK = [];
 
   const $ = (s, el = document) => el.querySelector(s);
   const rupiah = n => 'Rp' + n.toLocaleString('id-ID');
@@ -32,7 +32,7 @@
           <div class="product-body">
             <h3>${esc(p.nama)}</h3>
             <p class="price">${rupiah(p.harga)}</p>
-            <div class="meta"><span>Jarak ${esc(p.jarak)}</span><span>${esc(p.kondisi)}</span></div>
+            <div class="meta"><span>${p.jarak ? 'Jarak ' + esc(p.jarak) : esc(p.penjual)}</span><span>${esc(p.kondisi)}</span></div>
           </div>
         </a>
       </article>`).join('');
@@ -109,5 +109,9 @@
     seksi.forEach(s => io.observe(s));
   }
 
-  render();
+  grid.innerHTML = '<p class="empty">Memuat barang...</p>';
+  window.produkSiap.then(list => {
+    PRODUK = list.filter(p => p.beranda !== false).slice(0, 8); // beranda: 8 terbaru
+    render();
+  });
 })();

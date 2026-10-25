@@ -1,7 +1,7 @@
 /* produk.js — SATU-SATUNYA sumber data barang (dipakai beranda, katalog, detail).
-   Nanti diganti fetch dari tabel Supabase; bentuk datanya dibuat mirip supaya
-   peralihannya mudah. Semua isi di bawah masih DATA CONTOH. */
-window.PRODUK = [
+   Sekarang data diambil dari tabel "products" di Supabase (butuh supabase.js).
+   PRODUK_CONTOH di bawah hanya cadangan kalau Supabase gagal dihubungi. */
+const PRODUK_CONTOH = [
   { id: 'rice-cooker-philips-2l', nama: 'Rice Cooker Philips 2L', namaLengkap: 'Rice Cooker Philips 2L HD3119/30',
     harga: 150000, kategori: 'Elektronik', img: 'images/rice-cooker.png', jarak: '2 km', kondisi: 'Sangat Baik', usia: 'Bekas · 1 tahun',
     tersedia: true, baru: true, penjual: 'Teddy', rating: 4.9,
@@ -32,4 +32,23 @@ window.PRODUK = [
     deskripsi: 'Kursi kerja nyaman. (Deskripsi contoh — ganti dengan data asli.)',
     poin: ['Kondisi: cukup', 'Lokasi: sekitar UNSIKA'] }
 ];
+
+window.PRODUK = [];
 window.cariProduk = id => window.PRODUK.find(p => p.id === id);
+
+// Halaman lain menunggu ini:  window.produkSiap.then(list => { ... })
+window.produkSiap = (async function muatProduk() {
+  try {
+    if (!window.db) throw new Error('Supabase belum siap');
+    const { data, error } = await window.db
+      .from('products')
+      .select('id, user_id, name, description, price, category, condition, image_url, seller_name, created_at')
+      .order('created_at', { ascending: false });
+    if (error) throw error;
+    window.PRODUK = data.map(produkDariDb);
+  } catch (err) {
+    console.error('Gagal memuat produk dari Supabase, pakai data contoh:', err);
+    window.PRODUK = PRODUK_CONTOH;
+  }
+  return window.PRODUK;
+})();

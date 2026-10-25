@@ -1,38 +1,51 @@
 /* auth.js — login/daftar untuk masuk.html
-   MODE DEMO: selama SUPABASE_URL / SUPABASE_ANON_KEY masih kosong, form hanya
-   pindah ke beranda (tanpa kirim data apa pun ke URL). Isi dua nilai di bawah
-   setelah project Supabase dari tim siap. */
+   Koneksi Supabase ada di supabase.js (dimuat sebelum file ini). */
 
-const SUPABASE_URL = '';       // contoh: https://xxxx.supabase.co
-const SUPABASE_ANON_KEY = '';  // anon key (aman ditaruh di FE; keamanan lewat RLS)
+const db = window.db;
 
 // Cek domain di sini HANYA untuk pesan error yang ramah.
 // Penolakan sungguhan harus di sisi database (trigger/RLS) — tanya BE.
 const DOMAIN_UNSIKA = ['student.unsika.ac.id'];
 
-const db = (SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase)
-  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-  : null;
-
 const pesan = document.getElementById('pesan-auth');
 function tampilPesan(teks) { pesan.textContent = teks; pesan.hidden = !teks; }
 function emailUnsika(email) {
+  if (!WAJIB_EMAIL_UNSIKA) return true;
   const d = String(email).trim().toLowerCase().split('@')[1] || '';
   return DOMAIN_UNSIKA.includes(d);
 }
 function keBeranda() { location.href = 'index.html'; }
+
+// Pesan Supabase (bahasa Inggris) -> bahasa Indonesia
+function pesanRamah(error) {
+  const t = (error && error.message) || '';
+  if (t.includes('Invalid login credentials')) return 'Email atau kata sandi salah.';
+  if (t.includes('Email not confirmed')) return 'Email belum diverifikasi. Cek inbox email kamu.';
+  if (t.includes('already registered')) return 'Email ini sudah terdaftar. Silakan masuk.';
+  if (t.includes('Password should be')) return 'Kata sandi terlalu pendek (minimal 6 karakter).';
+  return 'Gagal: ' + t;
+}
+
+// Sudah login? Langsung ke beranda.
+ambilSesi().then(sesi => { if (sesi) keBeranda(); });
 
 // ===== Masuk dengan email + sandi =====
 document.getElementById('panel-masuk').addEventListener('submit', async e => {
   e.preventDefault();
   tampilPesan('');
   const f = new FormData(e.target);
-  const email = f.get('email'), sandi = f.get('sandi');
+  const email = String(f.get('email')).trim(), sandi = f.get('sandi');
   if (!emailUnsika(email)) return tampilPesan('Gunakan email mahasiswa UNSIKA (@student.unsika.ac.id).');
-  if (!db) return keBeranda(); // mode demo
-  const { error } = await db.auth.signInWithPassword({ email, password: sandi });
-  if (error) return tampilPesan('Email atau kata sandi salah.');
-  keBeranda();
+  if (!db) return tampilPesan('Tidak bisa terhubung ke server. Coba muat ulang halaman.');
+  tampilPesan('Memproses...');
+  try {
+    const { error } = await db.auth.signInWithPassword({ email, password: sandi });
+    if (error) return tampilPesan(pesanRamah(error));
+    keBeranda();
+  } catch (err) {
+    console.error(err);
+    tampilPesan('Tidak bisa menghubungi server. Periksa koneksi internet.');
+  }
 });
 
 // ===== Daftar =====
@@ -40,28 +53,38 @@ document.getElementById('panel-daftar').addEventListener('submit', async e => {
   e.preventDefault();
   tampilPesan('');
   const f = new FormData(e.target);
-  const email = f.get('email');
+  const email = String(f.get('email')).trim();
+  const nama = String(f.get('nama') || '').trim();
   if (!emailUnsika(email)) return tampilPesan('Gunakan email mahasiswa UNSIKA (@student.unsika.ac.id).');
-  if (!db) return keBeranda(); // mode demo
-  const { error } = await db.auth.signUp({
-    email,
-    password: f.get('sandi'),
-    options: { data: { nama: f.get('nama'), wa: f.get('wa') } }
-  });
-  if (error) return tampilPesan('Gagal mendaftar: ' + error.message);
-  tampilPesan('Cek email kamu untuk verifikasi, lalu masuk.');
+  if (!db) return tampilPesan('Tidak bisa terhubung ke server. Coba muat ulang halaman.');
+  tampilPesan('Memproses...');
+  try {
+    const { data, error } = await db.auth.signUp({
+      email,
+      password: f.get('sandi'),
+      // "username" ikut diisi supaya cocok dengan kode branch backend
+      options: { data: { nama, username: nama, wa: f.get('wa') } }
+    });
+    if (error) return tampilPesan(pesanRamah(error));
+    if (data.session) return keBeranda(); // "Confirm email" dimatikan di Supabase
+    tampilPesan('Pendaftaran berhasil. Cek email kamu untuk verifikasi, lalu masuk.');
+  } catch (err) {
+    console.error(err);
+    tampilPesan('Tidak bisa menghubungi server. Periksa koneksi internet.');
+  }
 });
 
 // ===== Masuk dengan Google =====
+// Butuh provider Google diaktifkan di Supabase (Authentication > Providers).
 document.getElementById('btn-google').addEventListener('click', async () => {
   tampilPesan('');
-  if (!db) return tampilPesan('Login Google belum aktif (Supabase belum dihubungkan).');
+  if (!db) return tampilPesan('Tidak bisa terhubung ke server.');
   const { error } = await db.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: location.origin + '/index.html',
+      redirectTo: location.origin + location.pathname.replace(/[^/]*$/, 'index.html'),
       queryParams: { hd: 'student.unsika.ac.id' } // hanya tampilan, bukan pengaman
     }
   });
-  if (error) tampilPesan('Gagal login dengan Google.');
+  if (error) tampilPesan('Login Google belum aktif. Minta BE mengaktifkan provider Google di Supabase.');
 });

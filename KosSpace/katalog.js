@@ -27,7 +27,7 @@
             <p class="price-tag">${rupiah(p.harga)}</p>
           </div>
           <div class="card__meta">
-            <span>Jarak ${esc(p.jarak)}</span>
+            <span>${p.jarak ? 'Jarak ' + esc(p.jarak) : esc(p.penjual)}</span>
             <span class="dot ${WARNA[slug(p.kondisi)] || 'dot--blue'}">${esc(p.kondisi)}</span>
           </div>
         </a>
@@ -48,7 +48,7 @@
 
     if (urutan.value === 'termurah') hasil.sort((a, b) => a.harga - b.harga);
     else if (urutan.value === 'termahal') hasil.sort((a, b) => b.harga - a.harga);
-    // "Terbaru": sementara mengikuti urutan data di produk.js (nanti pakai kolom created_at dari Supabase)
+    // "Terbaru": data dari Supabase sudah diurutkan created_at terbaru di produk.js
 
     $('#judul-katalog').textContent = kat.length === 1 ? JUDUL[kat[0]] : 'Semua Barang Kos';
     $('#jumlah').textContent = hasil.length;
@@ -77,5 +77,6 @@
   urutan.addEventListener('change', render);
   grid.addEventListener('click', e => { if (e.target.id === 'hapus-filter') kosongkan(); });
 
-  render();
+  grid.innerHTML = '<p style="grid-column:1/-1;padding:40px 0;text-align:center">Memuat barang...</p>';
+  window.produkSiap.then(render);
 })();
