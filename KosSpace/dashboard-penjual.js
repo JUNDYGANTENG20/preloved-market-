@@ -10,7 +10,7 @@
 
   async function mulai() {
     const sesi = await ambilSesi();
-    if (!sesi) { location.replace('masuk.html'); return; }
+    if (!sesi) { location.replace('masuk.html?next=dashboard-penjual.html'); return; }
     user = sesi.user;
 
     const nama = namaTampil(user);

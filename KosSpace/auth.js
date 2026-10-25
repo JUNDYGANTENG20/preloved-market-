@@ -14,7 +14,12 @@ function emailUnsika(email) {
   const d = String(email).trim().toLowerCase().split('@')[1] || '';
   return DOMAIN_UNSIKA.includes(d);
 }
-function keBeranda() { location.href = 'index.html'; }
+// Setelah masuk/daftar: kembali ke halaman asal (?next=tambah-produk.html), default beranda.
+// Hanya nama file .html lokal yang diizinkan, supaya tidak bisa diarahkan ke situs lain.
+function keBeranda() {
+  const next = new URLSearchParams(location.search).get('next') || '';
+  location.href = /^[a-z0-9-]+\.html$/.test(next) ? next : 'index.html';
+}
 
 // Pesan Supabase (bahasa Inggris) -> bahasa Indonesia
 function pesanRamah(error) {
@@ -83,7 +88,8 @@ document.getElementById('btn-google').addEventListener('click', async () => {
     provider: 'google',
     options: {
       redirectTo: location.origin + location.pathname.replace(/[^/]*$/, 'index.html'),
-      queryParams: { hd: 'student.unsika.ac.id' } // hanya tampilan, bukan pengaman
+      // Sarankan akun Google kampus hanya kalau WAJIB_EMAIL_UNSIKA = true (hanya tampilan, bukan pengaman)
+      queryParams: WAJIB_EMAIL_UNSIKA ? { hd: 'student.unsika.ac.id' } : {}
     }
   });
   if (error) tampilPesan('Login Google belum aktif. Minta BE mengaktifkan provider Google di Supabase.');

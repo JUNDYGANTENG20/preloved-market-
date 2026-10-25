@@ -20,7 +20,7 @@
 
   // Wajib login
   ambilSesi().then(async sesi => {
-    if (!sesi) { location.replace('masuk.html'); return; }
+    if (!sesi) { location.replace('masuk.html?next=tambah-produk.html'); return; }
     user = sesi.user;
     const nama = namaTampil(user);
     document.getElementById('nama-user').textContent = nama;
@@ -73,7 +73,7 @@
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    if (!user) { location.replace('masuk.html'); return; }
+    if (!user) { location.replace('masuk.html?next=tambah-produk.html'); return; }
 
     const f = new FormData(form);
     const harga = Number(f.get('harga'));
